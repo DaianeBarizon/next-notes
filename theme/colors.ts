@@ -66,6 +66,19 @@ const blue = {
     900: '#0025A1',
 };
 
+const darkBlue = {
+    50: '#d9def0',
+    100: '#a5b0df',
+    200: '#7182cc',
+    300: '#4c5da9',
+    400: '#364793',
+    500: '#233277',
+    600: '#2d3950',
+    700: '#272635',
+    800: '#0e0c28',
+    900: '#06060a',
+};
+
 const orange = {
     50: '#FEF2DE',
     100: '#FDDEAE',
@@ -102,6 +115,7 @@ const colors = {
     gray,
     green,
     blue,
+    darkBlue,
     orange,
     red,
 
