@@ -1,96 +1,33 @@
 import React from 'react';
 import { Box } from 'components/Box';
-import styled from 'styled-components';
+import { RenderColor } from './RenderColor';
 
-const DivWrapper = styled.div`
-    background-color: ${(props) => props.theme.colors.darkBlue[600]};
-    padding: 20px;
-    margin: 8px;
-    max-width: 1200px;
-    width: 100%;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid ${(props) => props.theme.colors.darkBlue[400]};
-    color: ${(props) => props.theme.colors.darkBlue[50]};
-`;
-
-interface Props {
-    title?: string;
-    category?: string;
+export interface ITask {
+    id?: number;
+    description: string;
+    category?: number;
 }
 
-export const Task = ({ title, category }: Props) => {
+export const Task = ({ description, category }: ITask) => {
     return (
-        <DivWrapper>
-            {title}
-            <RenderColor category={category} />
-        </DivWrapper>
-    );
-};
+        <Box
+            backgroundColor='white'
+            borderRadius='5px'
+            border='1px solid taskColors.2'
+            color='textDarkGray'
+            display='flex'
+            alignItems='center'
+            justifyContent='space-between'
+            p='3'
+            mt='3'
+            mr='3'
+            width='100%'
+        >
+            <Box as='span' p='2'>
+                {description}
+            </Box>
 
-const RenderColor = ({ category }: Props) => {
-    switch (category) {
-        case 'Trabalho':
-            return (
-                <Box
-                    background='#E14A00'
-                    borderRadius={50}
-                    width={1}
-                    height={1}
-                    p={1}
-                />
-            );
-        case 'Estudos':
-            return (
-                <Box
-                    background='#BB252C'
-                    borderRadius={50}
-                    width={1}
-                    height={1}
-                    p={1}
-                />
-            );
-        case 'Negócios':
-            return (
-                <Box
-                    background='#005D00'
-                    borderRadius={50}
-                    width={1}
-                    height={1}
-                    p={1}
-                />
-            );
-        case 'Lazer':
-            return (
-                <Box
-                    background='#0025A1'
-                    borderRadius={50}
-                    width={1}
-                    height={1}
-                    p={1}
-                />
-            );
-        case 'Compras':
-            return (
-                <Box
-                    background='#FAB341'
-                    borderRadius={50}
-                    width={1}
-                    height={1}
-                    p={1}
-                />
-            );
-        default:
-            return (
-                <Box
-                    background='#CE234B'
-                    borderRadius={50}
-                    width={1}
-                    height={1}
-                    p={1}
-                />
-            );
-    }
+            <RenderColor category={category} />
+        </Box>
+    );
 };

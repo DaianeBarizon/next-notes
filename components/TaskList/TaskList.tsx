@@ -1,29 +1,18 @@
 import React from 'react';
 import { Box } from 'components/Box';
-import { Task } from 'components/Task/Task';
+import { Task } from 'components/Task';
+import useTask from 'hooks/useTask';
 
-interface Props {
-    list: {
-        id: number;
-        title: string;
-        category: string;
-    }[];
-}
+export const TaskList = () => {
+    const { taskList } = useTask();
 
-export const TaskList = ({ list }: Props) => {
     return (
-        <Box
-            display='flex'
-            flexDirection='column'
-            alignItems='center'
-            justifyContent='space-between'
-            width={1000}
-        >
-            {list.map((item) => (
+        <Box width='100%'>
+            {taskList.map((task) => (
                 <Task
-                    key={item.id}
-                    title={item.title}
-                    category={item.category}
+                    key={task.id}
+                    description={task.description}
+                    category={task.category}
                 />
             ))}
         </Box>
