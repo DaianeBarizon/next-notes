@@ -16,8 +16,6 @@ export const RenderColor = ({ element }: Props) => {
         element,
     ]);
 
-    console.log('hasTasksRelated', hasTasksRelated);
-
     const handleDeleteTag = (id: number) => {
         deleteTasksByCategory(id);
         deleteCategory(element.id);
