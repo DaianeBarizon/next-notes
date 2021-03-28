@@ -14,7 +14,6 @@ const useCategory = () => {
     };
 
     const addCategory = ({ category, color }: IAddNewCategory) => {
-        console.log('addCategory', category, color);
         setState([...state, { id: Math.random(), category, color }]);
     };
 

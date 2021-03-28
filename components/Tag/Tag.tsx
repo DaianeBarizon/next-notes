@@ -25,11 +25,11 @@ export const Tag = ({
                     {category}
                 </Box>
                 {closable ? (
-                    <Box as='a' color='#fff' onClick={closeTrigger}>
+                    <Box color='#fff' onClick={closeTrigger}>
                         x
                     </Box>
                 ) : (
-                    <Box as='a' color='#fff' onClick={addTrigger}>
+                    <Box color='#fff' onClick={addTrigger}>
                         +
                     </Box>
                 )}

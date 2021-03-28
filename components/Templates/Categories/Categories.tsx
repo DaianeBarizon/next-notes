@@ -6,6 +6,7 @@ import { Tag } from 'components/Tag';
 import { Modal, Input, Form } from 'antd';
 
 export const Categories = () => {
+    const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { categoryList, addCategory } = useCategory();
 
@@ -18,13 +19,10 @@ export const Categories = () => {
         setIsModalVisible(true);
     };
 
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
-
     const onFinish = ({ category, color }: any) => {
         addCategory({ category, color });
-        console.log('entrou aqui', category, color);
+        setIsModalVisible(false);
+        form.resetFields();
     };
 
     const handleCancel = () => {
@@ -60,10 +58,17 @@ export const Categories = () => {
                 <Modal
                     title='Adicionar categoria'
                     visible={isModalVisible}
-                    onOk={handleOk}
                     onCancel={handleCancel}
+                    okButtonProps={{
+                        form: 'category-editor-form',
+                        htmlType: 'submit',
+                    }}
                 >
-                    <Form onFinish={onFinish}>
+                    <Form
+                        id='category-editor-form'
+                        form={form}
+                        onFinish={onFinish}
+                    >
                         <Form.Item
                             label='Digita sua categoria'
                             name='category'

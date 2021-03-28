@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Tag } from 'components/Tag';
 import useCategory from 'hooks/useCategory';
 import useTask from 'hooks/useTask';
-import { Popconfirm, message } from 'antd';
+import { Popconfirm } from 'antd';
 export interface Props {
     title?: string;
     element: any;
@@ -15,6 +15,8 @@ export const RenderColor = ({ element }: Props) => {
     const hasTasksRelated = useMemo(() => hasTasksRelatedTo(element.id), [
         element,
     ]);
+
+    console.log('hasTasksRelated', hasTasksRelated);
 
     const handleDeleteTag = (id: number) => {
         deleteTasksByCategory(id);

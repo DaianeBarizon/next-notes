@@ -7,16 +7,19 @@ import useTask from 'hooks/useTask';
 const { Option } = Select;
 
 export const AddNewTask = () => {
+    const [form] = Form.useForm();
     const { categoryList } = useCategory();
     const { addNewTask } = useTask();
 
     const onFinish = ({ description, category }: any) => {
         addNewTask({ description, category });
+        form.resetFields();
     };
 
     return (
         <Box>
             <Form
+                form={form}
                 onFinish={onFinish}
                 style={{
                     flexDirection: 'row',
@@ -28,14 +31,18 @@ export const AddNewTask = () => {
                 initialValues={{ category: 'Selecione' }}
             >
                 <Form.Item
-                    label='Digita sua task'
+                    label={
+                        <label style={{ color: '#fff' }}>
+                            Digite sua tarefa:{' '}
+                        </label>
+                    }
                     name='description'
-                    style={{ padding: '0 30px', color: '#fff' }}
+                    style={{ padding: '0 30px' }}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
-                    label='Categoria'
+                    label={<label style={{ color: '#fff' }}>Categoria: </label>}
                     name='category'
                     style={{ padding: '0 10px', color: '#fff' }}
                 >
