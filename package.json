@@ -1,5 +1,5 @@
 {
-    "name": "next-notes",
+    "name": "next-boilerplate",
     "version": "0.1.0",
     "private": true,
     "description": "Boilerplate Nextjs + Typescript + Testing library + Styled components + Eslint + Commitlint",
@@ -13,7 +13,15 @@
         "heroku-postbuild": "yarn build"
     },
     "dependencies": {
+        "babel-plugin-inline-react-svg": "^2.0.1",
+        "@ant-design/icons": "4.2.1",
+        "@next/bundle-analyzer": "^9.1.4",
+        "antd": "4.3.0",
+        "cross-env": "^7.0.2",
+        "dayjs": "1.8.28",
+        "esm": "^3.2.25",  
         "next": "9.5.2",
+        "postcss-preset-env": "^6.7.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "styled-components": "^5.1.1",
@@ -22,6 +30,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.11.1",
+        "@babel/plugin-transform-property-literals": "^7.12.13",
         "@commitlint/cli": "^9.1.1",
         "@commitlint/config-conventional": "^9.1.1",
         "@testing-library/jest-dom": "^5.11.2",
@@ -46,6 +55,10 @@
         "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
         "typescript": "^3.9.7"
+    },
+    "browser": {
+        "fs": false,
+        "path": false
     },
     "husky": {
         "hooks": {
